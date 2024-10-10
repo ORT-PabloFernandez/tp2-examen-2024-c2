@@ -1,0 +1,5 @@
+{
+  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
+  "appService.defaultWebAppToDeploy": "/subscriptions/c763953c-942d-429c-bdc7-cbe3a7eb54e6/resourceGroups/ORT/providers/Microsoft.Web/sites/salesbackend",
+  "appService.deploySubpath": "."
+}
