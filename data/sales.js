@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 const DATABASE = "sample_supplies";
 const MOVIES = "sales";
 
-async function getAllSales(pageSize, page, location, purchaseMethod, couponUsed) {
+async function getAllSaless(pageSize, page, location, purchaseMethod, couponUsed) {
   const connectiondb = await getConnection();
    const query = {};
 
@@ -100,4 +100,4 @@ async function getSatisfaccion() {
 
 
 
-export { getAllSales , getSalesById, getSalesByLocation , getTopSelling , getSatisfaccion };
+export { getAllSaless , getSalesById, getSalesByLocation , getTopSelling , getSatisfaccion };

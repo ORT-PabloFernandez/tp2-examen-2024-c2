@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllSales , getSalesById , getSalesByLocation , getTopSelling , getSatisfaccion} from "../data/sales.js";
+import { getAllSaless , getSalesById , getSalesByLocation , getTopSelling , getSatisfaccion} from "../data/sales.js";
 
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   const couponUsed = req.query.couponUsed;
 
   // Pasa los nuevos parámetros a la función getAllSales
-  res.json(await getAllSales(pageSize, page, location, purchaseMethod, couponUsed));
+  res.json(await getAllSaless(pageSize, page, location, purchaseMethod, couponUsed));
 });
 
 router.get("/:id", async (req, res) => {

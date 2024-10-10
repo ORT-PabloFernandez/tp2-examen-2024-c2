@@ -10,3 +10,5 @@ app.use("/api/sales", salesRouter);
 app.listen(PORT, () => {
   console.log("Servidor Web en el puerto:", PORT);
 });
+
+
