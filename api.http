@@ -1,0 +1,27 @@
+GET http://localhost:3000/api/sales/filter?storeLocation=Denver&pageSize=10&page=1&purchaseMethod=Online&couponUsed=true
+
+###
+GET http://localhost:3000/api/sales/?pageSize=10&page=1
+
+###
+GET http://localhost:3000/api/sales/filter?storeLocation=Denver&pageSize=10&page=1
+###
+GET http://localhost:3000/api/sales/filter?purchaseMethod=Online&couponUsed=true&pageSize=10&page=1
+
+###
+GET http://localhost:3000/api/sales/filter?purchaseMethod=Online&pageSize=10&page=0
+
+###
+GET http://localhost:3000/api/sales/5bd761dcae323e45a93ccfe8
+
+###
+GET http://localhost:3000/api/sales/5bd761dcae323e45a93ccffe
+
+###
+GET http://localhost:3000/api/sales/masVendidos
+
+###
+GET http://localhost:3000/api/sales/customersSorted?pageSize=50&page=45
+
+###
+GET http://localhost:3000/api/sales/filter?storeLocation=Seattle&pageSize=10&page=1
