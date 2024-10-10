@@ -43,3 +43,8 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 ## Listado de endpoint
 
 -GET /api/sales?pageSize=[pageSize]&page=[page]
+-GET /api/sales/:id  = Obtener venta espicifica por _id
+-GET /api/sales/localizacion/:storeLocation  = Filtrar ventas por localizcion de tienda
+-GET /api/sales/filtro?storeLocation=[storeLocation]&purchaseMethod=[purchaseMethod]&couponUsed=[true|false]  = Filtrar ventas por localizacion, metodo de compra y si usaron o no un cupon.
+-GET /api/sales/clientes-por-satisfaccion  = Obtener clientes ordenados por nivel de satisfaccion.
+
