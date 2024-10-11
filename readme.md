@@ -43,3 +43,7 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 ## Listado de endpoint
 
 -GET /api/sales?pageSize=[pageSize]&page=[page]
+-GET /api/sales/[_id]
+-GET /api/sales/location/[location]
+-GET /api/sales/buscar?location=[location]&purchaseMethod=[purchaseMethod]&couponUsed=[true/false]
+-GET /api/sales/masvendidos   --> No la pude hacer funcionar
