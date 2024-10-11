@@ -1,5 +1,7 @@
 import express from "express";
-import { getAllSaless , getSalesById , getSalesByLocation , getTopSelling , getSatisfaccion} from "../data/sales.js";
+
+import { getAllSales , getSalesById , getSalesByLocation , getTopSelling , getSatisfaccion} from "../data/sales.js";
+
 
 const router = express.Router();
 
@@ -7,13 +9,14 @@ router.get("/", async (req, res) => {
   const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 0;
   const page = req.query.page ? parseInt(req.query.page) : 0;
 
+
   // Captura los nuevos parámetros de consulta
   const location = req.query.location;
   const purchaseMethod = req.query.purchaseMethod;
   const couponUsed = req.query.couponUsed;
 
   // Pasa los nuevos parámetros a la función getAllSales
-  res.json(await getAllSaless(pageSize, page, location, purchaseMethod, couponUsed));
+  res.json(await getAllSales(pageSize, page, location, purchaseMethod, couponUsed));
 });
 
 router.get("/:id", async (req, res) => {
@@ -48,6 +51,6 @@ router.get("/customers/satisfaction", async (req, res) => {
   } catch (error) {
       res.status(500).json({ error: "Error al obtener los clientes." });
   }
-});
+
 
 export default router;

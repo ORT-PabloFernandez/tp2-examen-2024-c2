@@ -42,6 +42,7 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 
 ## Listado de endpoint
 
+<<<<<<< HEAD
 ## Listado de Endpoints
 
 - 1 - Obtener todas las ventas: Este endpoint permite obtener una lista paginada de todas las ventas. Puedes aplicar filtros por localización, método de compra y si se utilizó un cupón. Utiliza los parámetros de consulta `pageSize` para definir el número de ventas a devolver por página (por defecto es 0) y `page` para especificar el número de la página que deseas obtener (por defecto es 0). Además, puedes filtrar las ventas por `location` (la localización de la tienda), `purchaseMethod` (como "In store" o "Phone") y `couponUsed` (filtra según el uso de cupones, `true` o `false`). Por ejemplo, una solicitud podría verse así:
@@ -59,6 +60,8 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 GET /api/sales/customers/satisfaction
 
 Todos los endpoints devuelven datos en formato JSON.
+
+
 
 
 
