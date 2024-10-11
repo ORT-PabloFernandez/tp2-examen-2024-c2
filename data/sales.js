@@ -35,6 +35,41 @@ export async function getSalesPorLocation(location){
   return locationSales
 }
 
+export async function masVendidos(){
+  const connectiondb = await getConnection();
+  const masVendidos = await connectiondb
+    .db(DATABASE)
+    .collection(MOVIES)
+    .aggregate([
+      {$unwind: "$items" }, //desarmo array de items
+      { $group: { 
+            _id: "$items.name", 
+            totalCantidad: { $sum: "$items.quantity" } 
+                } 
+      },
+      { $sort: { totalCantidad: -1 } },
+      { $limit: 10 }
+    ])
+    .toArray();
+  return masVendidos
+  
+}
 
+
+export async function buscarVentas({ location, purchaseMethod, couponUsed}){
+  const connectiondb = await getConnection();
+  const query = {};
+  if (location) query.storeLocation = location;
+  if (purchaseMethod) query.purchaseMethod = purchaseMethod;
+  if (couponUsed !== undefined) query.couponUsed = couponUsed === "true";
+
+  const ventas = await connectiondb
+    .db(DATABASE)
+    .collection(MOVIES)
+    .find(query)
+    .toArray();
+
+    return ventas;
+}
 
 export { getAllSales };

@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllSales , getSalesPorLocation , getSalePorId } from "../data/sales.js";
+import { getAllSales , getSalesPorLocation , getSalePorId , masVendidos, buscarVentas} from "../data/sales.js";
 
 const router = express.Router();
 
@@ -10,7 +10,19 @@ router.get("/", async (req, res) => {
   res.json(await getAllSales(pageSize, page));
 });
 
-router.get("/locationSales/:location", async (req, res) => {
+router.get("/buscar" , async (req, res) => {
+  const {location, purchaseMethod, couponUsed} = req.query;
+
+
+  try {
+    const ventasFiltradas = await buscarVentas({location, purchaseMethod, couponUsed});
+    res.json(ventasFiltradas);
+  } catch (error) {
+    res.status(500).send("Error obteniendo las ventas filtradas");
+  }
+})
+
+router.get("/location/:location", async (req, res) => {
   try {   
     const sales = await getSalesPorLocation(req.params.location);
     res.json(sales);
@@ -34,6 +46,13 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-
+router.get("/masvendidos", async (req, res) => {
+  try {
+    const vendidos = await masVendidos();
+    res.json(vendidos);
+  } catch (error) {
+    res.status(500).send("Error obteniendo los mas vendidos");
+  }
+})
 
 export default router;
