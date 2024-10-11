@@ -37,27 +37,6 @@ async function getSalesById(id) {
   return sale;
 }
 
-async function getSalesByLocation(location) {
-
-const DATABASE = "sample_supplies";
-const MOVIES = "sales";
-
-async function getAllSales(pageSize, page) {
-
-  const connectiondb = await getConnection();
-  const sales = await connectiondb
-    .db(DATABASE)
-    .collection(MOVIES)
-    .find({ storeLocation: location })
-
-    .find({})
-    .limit(pageSize)
-    .skip(pageSize * page)
-
-    .toArray();
-  return sales;
-}
-
 
 async function getTopSelling() {
   const connectiondb = await getConnection();
@@ -112,5 +91,5 @@ async function getSatisfaccion() {
 
 
 
-export { getAllSales , getSalesById, getSalesByLocation , getTopSelling , getSatisfaccion };
+export { getAllSales , getSalesById , getTopSelling , getSatisfaccion };
 

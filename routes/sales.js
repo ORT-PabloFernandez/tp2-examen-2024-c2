@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getAllSales , getSalesById , getSalesByLocation , getTopSelling , getSatisfaccion} from "../data/sales.js";
+import { getAllSales , getSalesById  , getTopSelling , getSatisfaccion} from "../data/sales.js";
 
 
 const router = express.Router();
@@ -27,12 +27,6 @@ router.get("/:id", async (req, res) => {
   res.json(sale);
 });
 
-router.get("/location/:location", async (req, res) => {
-  const sales = await getSalesByLocation(req.params.location);
-  res.json(sales);
-});
-
-
 router.get("/top-selling", async (req, res) => {
   try {
       const topProducts = await getTopSelling();
@@ -51,6 +45,7 @@ router.get("/customers/satisfaction", async (req, res) => {
   } catch (error) {
       res.status(500).json({ error: "Error al obtener los clientes." });
   }
+});
 
 
 export default router;
