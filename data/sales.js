@@ -18,6 +18,11 @@ async function getAllSales(pageSize, page) {
 
 async function obtenerVentaPorId(idVenta) {
   const connectiondb = await getConnection();
+  
+  if (!ObjectId.isValid(idVenta)) {
+    throw new Error("El ID proporcionado no es válido.");
+  }
+  
   const venta = await connectiondb.db(DATABASE).collection(MOVIES).findOne({ _id: new ObjectId(idVenta)}); 
   return venta; 
 }
