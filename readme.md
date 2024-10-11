@@ -43,3 +43,8 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 ## Listado de endpoint
 
 -GET /api/sales?pageSize=[pageSize]&page=[page]
+-GET /api/sales/:id
+-GET /api/sales/store-location/:location?pageSize=[pageSize]&page=[page]
+-GET /api/sales/filter-sale?storeLocation=[storeLocation]&purchaseMethod=[purchaseMethod]&couponUsed=[couponUsed]
+-GET /api/sales/most-sold-prod
+-GET /api/sales/sort-clients-satisfaction
